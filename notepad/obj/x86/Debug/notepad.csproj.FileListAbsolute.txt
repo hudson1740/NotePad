@@ -1,0 +1,13 @@
+C:\Users\LOL\Desktop\task\notepad\notepad\bin\Debug\notepad.exe
+C:\Users\LOL\Desktop\task\notepad\notepad\bin\Debug\notepad.pdb
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.Form1.resources
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.Properties.Resources.resources
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.csproj.GenerateResource.Cache
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.exe
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.pdb
+C:\Users\LOL\Desktop\task\notepad\notepad\bin\Debug\notepad.exe.manifest
+C:\Users\LOL\Desktop\task\notepad\notepad\bin\Debug\notepad.application
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.exe.manifest
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.application
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.AboutBox1.resources
+C:\Users\LOL\Desktop\task\notepad\notepad\obj\x86\Debug\notepad.csprojResolveAssemblyReference.cache
