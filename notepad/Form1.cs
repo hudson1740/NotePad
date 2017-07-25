@@ -12,36 +12,31 @@ namespace notepad
 {
     public partial class Form1 : Form
     {
+        int size = 10;
         public Form1()
+
         {
             InitializeComponent();
-            
+
         }
-        
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           
+
         }
-        private RichTextBox GetRichTextBox()
-        {
-            
-            RichTextBox rtb = null; //making it initially null
-            TabPage tp = tabControl1.SelectedTab; // saves the tab selection status in a tabpage type variable
-            if (tp != null)
-            {
-                rtb = tp.Controls[0] as RichTextBox; //sets the selected rich text box index as primary
-            }
-            return rtb;
-        }
-        
-        
-       
-        
+
+
+
+
+
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Stream myStream;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                richTextBox1.SelectAll();
+            richTextBox1.BackColor = richTextBox1.SelectionBackColor;
+            richTextBox1.DeselectAll();
             {
                 if ((myStream = openFileDialog1.OpenFile()) != null)
                 {
@@ -51,7 +46,6 @@ namespace notepad
                     RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
                     rtb.Dock = DockStyle.Fill; //docks rich text box 
                     tp.Controls.Add(rtb); // adds rich text box to the tab page
-                    tabControl1.TabPages.Add(tp); //adds the tab pages to tab control
                     rtb.Text = readfiletext;
                 }
             }
@@ -59,29 +53,34 @@ namespace notepad
 
         private void cuteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GetRichTextBox().Cut();
+            richTextBox1.Cut();
         }
 
         private void copyToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            GetRichTextBox().Copy();
+            richTextBox1.Copy();
         }
 
         private void pasteToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            GetRichTextBox().Paste();
+            richTextBox1.Paste();
         }
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GetRichTextBox().ClearUndo();
+            richTextBox1.ClearUndo();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionBackColor = richTextBox1.BackColor;
+            richTextBox1.DeselectAll();
+
             RichTextBox rtb = new RichTextBox();
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.Filter = "*.txt(textfile)|*.txt";
             rtb.Dock = DockStyle.Fill;
+
             if (savefile.ShowDialog() == DialogResult.OK)
             {
                 rtb.SaveFile(savefile.FileName, RichTextBoxStreamType.PlainText);
@@ -90,14 +89,31 @@ namespace notepad
 
         private void gToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            TabPage tp = new TabPage("New Document"); //creates a new tab page
-            RichTextBox rtb = new RichTextBox(); //creates a new richtext box object
-            rtb.Dock = DockStyle.Fill; //docks rich text box 
-            tp.Controls.Add(rtb); // adds rich text box to the tab page
-            tabControl1.TabPages.Add(tp); //adds the tab pages to tab control
-        }
 
+
+
+            if (MessageBox.Show("DO You Want To Save Your Work?", "Save?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                RichTextBox rtb = new RichTextBox();
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.Filter = "*.txt(textfile)|*.txt";
+                rtb.Dock = DockStyle.Fill;
+
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    rtb.SaveFile(savefile.FileName, RichTextBoxStreamType.PlainText);
+                    {
+
+                    }
+                    if (MessageBox.Show("DO You Want To Save Your Work?", "Save?", MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
+                        richTextBox1.Clear();
+                    }
+                }
+            }
+
+       
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (System.Windows.Forms.Application.MessageLoop)
@@ -114,7 +130,7 @@ namespace notepad
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GetRichTextBox().Cut();
+            richTextBox1.Cut();
             
         }
 
@@ -146,21 +162,63 @@ namespace notepad
                 // Get Font.
                 Font font = fontDialog1.Font;
                 // Set TextBox properties.
-                this.GetRichTextBox().Text = string.Format("Font is: {0}", font.Name);
-                this.GetRichTextBox().Font = font;
+                this.richTextBox1.Text = string.Format("Font is: {0}", font.Name);
+                this.richTextBox1.Font = font;
             }
         }
 
-       
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            size = size + 2;
 
-        
-       
+            richTextBox1.SelectionFont = new Font("Arial Rounded MT", size);
+        }
 
-        
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            size = size - 2;
+            richTextBox1.SelectionFont = new Font("Arial Rounded MT", size);
+        }
 
-       
+        private void redToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionColor = Color.Red;
+        }
 
-        
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionColor = Color.Blue;
+        }
 
+        private void limeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionColor = Color.Lime;
+        }
+
+        private void blackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionColor = Color.Black;
+        }
+
+        private void redToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Color.Black;
+        }
+
+        private void marronToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Color.Maroon;
+        }
+
+        private void navyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Color.Navy;
+        }
+
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.BackColor = Color.White;
+        }
     }
-}
+    }
+

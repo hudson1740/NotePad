@@ -125,7 +125,7 @@
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Facebook: https://www.facebook.com/Le.roi.est.revenu.1994\r\nLinkedIn: https://eg.l" +
-                "inkedin.com/in/mahmoudelbadry";
+    "inkedin.com/in/mahmoudelbadry";
             // 
             // okButton
             // 
